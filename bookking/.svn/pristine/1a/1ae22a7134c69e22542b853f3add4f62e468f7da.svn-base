@@ -1,0 +1,124 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div class="left-sidebar">
+<h2>Category</h2>
+<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordian" href="#novel">
+					<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+					소설
+				</a>
+			</h4>
+		</div>
+		<div id="novel" class="panel-collapse collapse">
+			<div class="panel-body">
+				<ul>
+					<!-- 
+					<li><a href="category/${categoryList[0].categoryId}">고전소설 </a></li>
+					<li><a href="category/${categoryList[1].categoryId}">추리소설 </a></li>
+					<li><a href="category/category_id=3">공포소설 </a></li>
+					<li><a href="category/category_id=4">환타지소설</a></li>
+					<li><a href="category/category_id=5">라이트노벨 </a></li>
+					<li><a href="category/category_id=6">SF소설 </a></li>
+					<li><a href="category/category_id=7">로맨스소설 </a></li>
+					 -->
+				<c:forEach items="${categoryList}" var="category" begin="0" end="6">
+					<li><a href="<c:url value='/category/${category.categoryId}'/>">${category.categoryKind2} </a></li>
+				</c:forEach>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordian" href="#self_imp">
+					<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+					자기계발
+				</a>
+			</h4>
+		</div>
+		<div id="self_imp" class="panel-collapse collapse">
+			<div class="panel-body">
+				<ul>
+					<!-- <li><a href="category/category_id=8">성공/처세</a></li>
+					<li><a href="category/category_id=9">인간관계</a></li>
+					<li><a href="category/category_id=10">자기능력계발</a></li>
+					<li><a href="category/category_id=11">비즈니스능력계발</a></li> -->
+				<c:forEach items="${categoryList}" var="category" begin="7" end="10">
+					<li><a href="<c:url value='/category/${category.categoryId}'/>">${category.categoryKind2} </a></li>
+				</c:forEach>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordian" href="#religion">
+					<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+					종교
+				</a>
+			</h4>
+		</div>
+		<div id="religion" class="panel-collapse collapse">
+			<div class="panel-body">
+				<ul>
+					<!-- <li><a href="category/category_id=12">불교</a></li>
+					<li><a href="category/category_id=13">카톨릭</a></li>
+					<li><a href="category/category_id=14">기독교</a></li>
+					<li><a href="category/category_id=15">그외종교</a></li> -->
+					<c:forEach items="${categoryList}" var="category" begin="11" end="14">
+						<li><a href="<c:url value='/category/${category.categoryId}'/>">${category.categoryKind2} </a></li>
+					</c:forEach>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<!-- <a href="category/category_id=16">만화</a> -->
+				<a href="<c:url value='/category/${categoryList[15].categoryId}'/>">${categoryList[15].categoryKind1}</a>
+			</h4>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+			<a href="<c:url value='/category/${categoryList[16].categoryId}'/>">${categoryList[16].categoryKind1}</a>
+			</h4>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+			<a href="<c:url value='/category/${categoryList[17].categoryId}'/>">${categoryList[17].categoryKind1}</a>
+			</h4>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+			<a href="<c:url value='/category/${categoryList[18].categoryId}'/>">${categoryList[18].categoryKind1}</a>
+			</h4>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+			<a href="<c:url value='/category/${categoryList[19].categoryId}'/>">${categoryList[19].categoryKind1}</a>
+			</h4>
+		</div>
+	</div>
+</div><!--/category-products-->
+
+<div class="shipping text-center"><!--shipping-->
+	<img src="<c:url value='/images/home/shipping.jpg'/>" alt="" />
+</div><!--/shipping-->
+
+</div>

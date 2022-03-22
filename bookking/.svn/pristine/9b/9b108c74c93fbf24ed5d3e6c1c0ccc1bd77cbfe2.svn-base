@@ -1,0 +1,30 @@
+package kr.co.bookking.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class CartDAO {
+	@Autowired
+	SqlSessionTemplate template;
+	
+	//카드 목록
+	public List<Map<String, String>> cartList (String userId){
+		
+		return template.selectList("cart.cartList", userId);
+	}
+	
+	//카트에 상품 등록
+	public int addCart(Map<String, Object> params){
+		System.out.println(params.toString());
+		return template.insert("cart.addCart", params);
+	}
+	
+	public int isExistedCart(Map<String, Object> params){
+		return template.selectOne("cart.isExistedCart", params);
+	}
+}

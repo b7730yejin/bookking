@@ -1,0 +1,184 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
+<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Category</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#novel">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											소설
+										</a>
+									</h4>
+								</div>
+								<div id="novel" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li><a href="#">고전소설 </a></li>
+											<li><a href="#">추리소설 </a></li>
+											<li><a href="#">공포소설 </a></li>
+											<li><a href="#">환타지소설</a></li>
+											<li><a href="#">라이트노벨 </a></li>
+											<li><a href="#">SF소설 </a></li>
+											<li><a href="#">로맨스소설 </a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#self_imp">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											자기계발
+										</a>
+									</h4>
+								</div>
+								<div id="self_imp" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li><a href="#">성공/처세</a></li>
+											<li><a href="#">인간관계</a></li>
+											<li><a href="#">자기능력계발</a></li>
+											<li><a href="#">비즈니스능력계발</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordian" href="#religion">
+											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											종교
+										</a>
+									</h4>
+								</div>
+								<div id="religion" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul>
+											<li><a href="#">불교</a></li>
+											<li><a href="#">카톨릭</a></li>
+											<li><a href="#">기독교</a></li>
+											<li><a href="#">그외종교</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">만화</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">전공서적</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">시/에세이</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">유아/청소년</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">외국어</a></h4>
+								</div>
+							</div>
+						</div><!--/category-products-->
+					
+						<div class="shipping text-center"><!--shipping-->
+							<img src="<c:url value='/images/home/shipping.jpg'/>" alt="" />
+						</div><!--/shipping-->
+					
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-5">
+							<div class="view-product">
+								<img src="<c:url value='/${book.bookListImage}'/>" alt="" />
+							</div>
+
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information"><!--/product-information-->
+								<img src="<c:url value='/images/product-details/new.jpg'/>" class="newarrival" alt="" />
+								<h2>${book.bookName}</h2>
+								<h4>저자 : ${book.bookWriter}</h4>
+								<span>
+									<span>가격: <fmt:formatNumber>${book.bookPrice}</fmt:formatNumber> 원</span><br>
+									<label>수량:</label><input type="text" value="0" />
+								</span>
+								<span>
+									<button type="button" class="btn btn-fefault cart">
+										<i class="fa fa-shopping-cart"></i>
+										Add to cart
+									</button>
+								</span>
+								<p><b>재고: </b>${book.bookStock}</p>
+								<p><b>출판사:</b> ${book.bookPublisher}</p>
+								<p><b>등록일:</b> ${book.bookDate}</p>
+							</div><!--/product-information-->
+						</div>
+					</div><!--/product-details-->
+					
+					
+					<div class="recommended_items"><!--recommended_items-->
+						<h2 class="title text-center">Book Contents</h2>
+						<div class="col-sm-7">
+							<h5>${book.bookContents}</h5>
+						</div>
+					</div><!--/recommended_items-->
+					
+					<div class="reply_items">
+						<h2 class="title text-center">Book Review</h2>
+						<div class="col-sm-12">
+							<table class="table table-striped">
+								<tr>
+									<th>번호</th>
+									<th>내용</th>
+									<th>ID</th>
+									<th>등록일</th>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>허균 사랑해요</td>
+									<td>yms</td>
+									<td>2016/03/18</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>허균 사랑해요</td>
+									<td>yms</td>
+									<td>2016/03/18</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>허균 사랑해요</td>
+									<td>yms</td>
+									<td>2016/03/18</td>
+								</tr>
+							</table>
+						</div>
+					
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>

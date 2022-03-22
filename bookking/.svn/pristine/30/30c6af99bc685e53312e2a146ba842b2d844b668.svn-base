@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC  
+ "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="orderGoods">
+<resultMap type="kr.co.bookking.VO.OrderVO" id="orderGoodsMap">
+	<result column="ORDER_ID" property="orderId"/>
+	<result column="ORDER_GOODS_SEQ" property="orderGoodsSeq"/>
+	<result column="ORDER_GOODS_ID" property="orderGoodsId"/>
+	<result column="ORDER_GOODS_STOCK" property="orderGoodsStock"/>
+	<result column="ORDER_GOODS_PRICE" property="orderGoodsPrice"/>
+</resultMap>
+	<insert id="createOrder" parameterType="kr.co.bookking.VO.OrderGoodsVO">
+		INSERT INTO BK_ORDER_GOODS (ORDER_ID, ORDER_GOODS_SEQ, ORDER_GOODS_ID, ORDER_GOODS_STOCK, ORDER_GOODS_PRICE)
+		VALUES(ORDER_ID_SEQ.CURRVAL, order_Goods_SEQ_SEQ.NEXTVAL, #{orderGoodsId}, #{orderGoodsStock}, #{orderGoodsPrice})
+	</insert>
+</mapper> 

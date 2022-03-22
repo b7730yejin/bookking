@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+
+<resultMap type="kr.co.bookking.VO.UserVO" id="userMap">
+	<result column="USER_ID" property="userId"/>
+	<result column="USER_PASSWORD" property="userPassword"/>
+	<result column="USER_NAME" property="userName"/>
+	<result column="USER_ADDR1" property="userAddr1"/>
+	<result column="USER_ADDR2" property="userAddr2"/>
+	<result column="USER_ZIP" property="userZip"/>
+	<result column="USER_EMAIL" property="userEmail"/>
+	<result column="USER_BIRTH" property="userBirth"/>
+	<result column="USER_CELLPHONE1" property="userCellphone1"/>
+	<result column="USER_CELLPHONE2" property="userCellphone2"/>
+	<result column="USER_CELLPHONE3" property="userCellphone3"/>
+	<result column="USER_SEX" property="userSex"/>
+	<result column="USER_MILEAGE" property="userMileage"/>
+</resultMap>
+
+	<insert id="signup" parameterType="kr.co.bookking.VO.UserVO">
+	INSERT INTO 
+							BK_USER (USER_ID	,USER_PASSWORD ,USER_NAME ,USER_CELLPHONE1 ,USER_CELLPHONE2 ,USER_CELLPHONE3
+							,USER_ADDR1 ,USER_SEX,USER_EMAIL ,USER_ZIP ,USER_ADDR2)
+			VALUES(
+							#{userId}
+							,#{userPassword}
+							,#{userName}
+							,#{userCellphone1}
+							,#{userCellphone2}
+							,#{userCellphone3}
+							,#{userAddr1}
+							,#{userSex}
+							,#{userEmail}
+							,#{userAddr2}
+							,#{userZip}
+			)
+	</insert>
+	
+	<select id="isDuplication" resultType="java.lang.String">
+		SELECT USER_ID
+		FROM BK_USER
+		WHERE USER_ID = #{userId}
+	</select>
+	
+	<select id="login" resultType="java.lang.String" parameterType="java.util.Map">
+		SELECT USER_ID, USER_PASSWORD 
+		 FROM BK_USER
+		WHERE USER_ID = #{userId}
+		   AND USER_PASSWORD = #{userPassword}
+	</select>
+
+</mapper>

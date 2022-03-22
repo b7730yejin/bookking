@@ -1,0 +1,28 @@
+package kr.co.bookking.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import kr.co.bookking.VO.BookVO;
+import kr.co.bookking.service.BookServiceImpl;
+
+@Controller
+@RequestMapping(value="/book")
+public class BookController {
+	
+	@Autowired
+	BookServiceImpl service;
+	
+	@RequestMapping(value="/{bookId}")
+	public String CartView (Model model, @PathVariable("bookId") int bookId){
+		BookVO book = service.searchBookById(bookId);
+		service.plusCount(bookId);
+		model.addAttribute("book", book);
+		model.addAttribute("contentFile", "detail/detail.jsp");
+		return "home";
+	}
+
+}

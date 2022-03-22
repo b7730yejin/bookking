@@ -1,0 +1,43 @@
+package kr.co.bookking.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.co.bookking.dao.CartDAO;
+import oracle.net.aso.p;
+@Service
+public class CartServiceImpl implements CartService {
+	
+	@Autowired
+	CartDAO dao;
+
+	@Override
+	public List<Map<String, String>> cartList(String userId) throws RuntimeException {
+		return dao.cartList(userId);
+	}
+
+	@Override
+	public int addCart(String userId, int stock, int bookId) throws RuntimeException {
+		Map<String, Object> params = new HashMap<String, Object>(); 
+		params.put("userId", userId);
+		params.put("cartStock", stock);
+		params.put("bookId", bookId);
+		return dao.addCart(params);
+	}
+
+	@Override
+	public int isExistedCart(String userId, int bookId) throws RuntimeException {
+		Map<String, Object> params = new HashMap<String,Object>();
+		params.put("userId", userId);
+		params.put("bookId", bookId);
+		return dao.isExistedCart(params);
+	}
+	
+	
+
+}

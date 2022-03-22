@@ -1,0 +1,17 @@
+package kr.co.bookking.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping(value="/order")
+public class OrderController {
+
+	@RequestMapping(value="/books")
+	public String goCheckOut(Model model){
+		model.addAttribute("contentFile", "order/checkout.jsp");
+		return "home";
+	}
+	
+}

@@ -1,0 +1,24 @@
+package kr.co.bookking.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import kr.co.bookking.VO.BookVO;
+
+@Repository
+public class BookDAO {
+	
+	@Autowired
+	SqlSessionTemplate template;
+	
+	/* bookId를 이용해서 책 정보 리턴*/
+	public BookVO searchBookById(int bookId){
+		return template.selectOne("book.selectBook", bookId);
+	}
+	
+	/* 상세페이지 방문 시 히트 수 증가 */
+	public int plusCount(int bookId){
+		return template.update("book.updateCount", bookId);
+	}
+}

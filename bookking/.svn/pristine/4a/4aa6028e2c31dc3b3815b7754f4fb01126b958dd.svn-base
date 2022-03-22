@@ -1,0 +1,25 @@
+package kr.co.bookking.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.co.bookking.VO.BookVO;
+import kr.co.bookking.dao.BookDAO;
+
+@Service
+public class BookServiceImpl implements BookService {
+
+	@Autowired
+	BookDAO dao;
+	
+	@Override
+	public BookVO searchBookById(int bookId) {
+		return dao.searchBookById(bookId);
+	}
+
+	@Override
+	public int plusCount(int bookId) {
+		return dao.plusCount(bookId);
+	}
+
+}

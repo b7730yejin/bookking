@@ -1,0 +1,19 @@
+package kr.co.bookking.service;
+
+
+import org.springframework.stereotype.Service;
+
+import kr.co.bookking.VO.UserVO;
+
+public interface UserService {
+	
+	/*회원가입*/
+	public int signup(UserVO user) throws RuntimeException ;
+	
+	/*아이디 중복체크*/
+	public String isDuplication(String userId) throws RuntimeException;
+	
+	/*로그인*/
+	public String login(String userId, String userPw) throws RuntimeException;
+
+}

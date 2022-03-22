@@ -1,0 +1,25 @@
+package kr.co.bookking.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import kr.co.bookking.VO.UserVO;
+
+@Repository
+public class UserDAO {
+	
+	@Autowired
+	SqlSessionTemplate template;
+	
+	/* 사용자 회원가입 */
+	public int userSignup(UserVO user) throws Exception{
+	return template.insert("user.userSignup", user);
+	}
+	
+	/*아이디 중복검사*/
+	public String userDuplication(String userId) throws Exception{
+		return template.selectOne("user.userDuplication", userId);
+	}
+
+}

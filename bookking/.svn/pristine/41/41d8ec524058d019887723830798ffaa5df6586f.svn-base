@@ -1,0 +1,13 @@
+package kr.co.bookking.service;
+
+import kr.co.bookking.VO.BookVO;
+
+public interface BookService {
+
+	/* bookId를 이용해서 책 정보 리턴*/
+	public BookVO searchBookById(int bookId);
+	
+	/* 상세페이지 방문 시 히트 수 증가 */
+	public int plusCount(int bookId);
+	
+}

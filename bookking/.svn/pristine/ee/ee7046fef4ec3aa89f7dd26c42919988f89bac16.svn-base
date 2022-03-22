@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cart">
+<resultMap type="kr.co.bookking.VO.CartVO" id="userMap">
+	<result column="CART_USER_ID" property="bookId"/>
+	<result column="CART_BOOK_ID" property="cartStock"/>
+	<result column="CART_STOCK" property="cartUserId"/>
+	<result column="CART_CREATE_DATE" property="cartCreateDate"/>
+</resultMap>
+
+	<select id="cartList" resultType="java.util.Map" parameterType="java.lang.String">
+		SELECT BC.CART_USER_ID as CART_USER_ID
+		          ,BC.CART_STOCK as CART_STOCK
+		          ,BC.CART_BOOK_ID as CART_BOOK_ID
+		          ,BB.BOOK_NAME as BOOK_NAME
+		          ,TO_CHAR(BB.BOOK_PRICE,'999,999') as BOOK_PRICE
+		          ,BB.BOOK_LIST_IMAGE as BOOK_LIST_IMAGE
+		          ,BB.BOOK_WRITER as BOOK_WRITER
+		  FROM BK_CART BC, BK_BOOK BB
+		WHERE BC.CART_BOOK_ID = BB.BOOK_ID
+		    AND BC.CART_USER_ID = #{userId}
+	</select>
+
+</mapper>

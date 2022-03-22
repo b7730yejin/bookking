@@ -1,0 +1,85 @@
+package kr.co.bookking.VO;
+
+public class UserVO {
+	String userId, userPassword, userName, userAddr, userEmail, userBirth;
+	int userCellphone1, userCellphone2, userCellphone3;
+	
+	public UserVO(){}
+	
+	public UserVO(String userId, String userPassword, String userName, String userAddr, String userEmail,
+			String userBirth, int userCellphone1, int userCellphone2, int userCellphone3) {
+		super();
+		this.userId = userId;
+		this.userPassword = userPassword;
+		this.userName = userName;
+		this.userAddr = userAddr;
+		this.userEmail = userEmail;
+		this.userBirth = userBirth;
+		this.userCellphone1 = userCellphone1;
+		this.userCellphone2 = userCellphone2;
+		this.userCellphone3 = userCellphone3;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getUserPassword() {
+		return userPassword;
+	}
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getUserAddr() {
+		return userAddr;
+	}
+	public void setUserAddr(String userAddr) {
+		this.userAddr = userAddr;
+	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+	public String getUserBirth() {
+		return userBirth;
+	}
+	public void setUserBirth(String userBirth) {
+		this.userBirth = userBirth;
+	}
+	public int getUserCellphone1() {
+		return userCellphone1;
+	}
+	public void setUserCellphone1(int userCellphone1) {
+		this.userCellphone1 = userCellphone1;
+	}
+	public int getUserCellphone2() {
+		return userCellphone2;
+	}
+	public void setUserCellphone2(int userCellphone2) {
+		this.userCellphone2 = userCellphone2;
+	}
+	public int getUserCellphone3() {
+		return userCellphone3;
+	}
+	public void setUserCellphone3(int userCellphone3) {
+		this.userCellphone3 = userCellphone3;
+	}
+	
+	@Override
+	public String toString() {
+		return "UserVO [userId=" + userId + ", userPassword=" + userPassword + ", userName=" + userName + ", userAddr="
+				+ userAddr + ", userEmail=" + userEmail + ", userBirth=" + userBirth + ", userCellphone1="
+				+ userCellphone1 + ", userCellphone2=" + userCellphone2 + ", userCellphone3=" + userCellphone3 + "]";
+	}
+	
+}

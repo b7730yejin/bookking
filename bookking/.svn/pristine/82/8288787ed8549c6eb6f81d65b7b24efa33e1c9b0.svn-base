@@ -1,0 +1,42 @@
+package kr.co.bookking.service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+
+import kr.co.bookking.VO.UserVO;
+import kr.co.bookking.dao.UserDAO;
+
+@Service
+public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	UserDAO userDao;
+	
+	//회원가입
+	@Override
+	public int signup(UserVO user) throws RuntimeException {
+		System.out.println("userService");
+		System.out.println(user.toString());
+		return userDao.signup(user);
+	}
+
+	//중복확인
+	@Override
+	public String isDuplication(String userId) throws RuntimeException {
+		return userDao.isDuplication(userId);
+	}
+
+	//로그인
+	@Override
+	public String login(String userId, String userPw) throws RuntimeException {
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("userId", userId);
+		params.put("userPassword", userPw);
+		return userDao.login(params);
+	}
+
+}

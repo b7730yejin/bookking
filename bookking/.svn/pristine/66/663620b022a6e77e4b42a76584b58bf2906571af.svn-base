@@ -1,0 +1,28 @@
+package kr.co.bookking.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+
+import kr.co.bookking.VO.UserVO;
+import kr.co.bookking.dao.UserDAO;
+
+@Service
+public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	UserDAO userDao;
+	
+	@Override
+	public int userSingup(UserVO user) throws Exception {
+		System.out.println("userService");
+		System.out.println(user.toString());
+		return userDao.userSignup(user);
+	}
+
+	@Override
+	public String userDuplication(String userId) throws Exception {
+		return userDao.userDuplication(userId);
+	}
+
+}
